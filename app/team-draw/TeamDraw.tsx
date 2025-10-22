@@ -7,7 +7,6 @@ export function TeamDraw() {
     const [result, setResult] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const [player, setPlayer] = useState<string>("");
-  const [isActive, setIsActive] = useState(true);
 
     useEffect(() => {
         async function fetchUnassignedMember() {
@@ -29,29 +28,6 @@ export function TeamDraw() {
             }
         }
         fetchUnassignedMember();
-    }, []);
-
-    // Track document visibility and window focus to hide interactive UI when not active
-    useEffect(() => {
-      const handleVisibility = () => {
-        setIsActive(!(document.hidden || document.visibilityState === 'hidden'));
-      };
-
-      const handleBlur = () => setIsActive(false);
-      const handleFocus = () => setIsActive(true);
-
-      document.addEventListener('visibilitychange', handleVisibility);
-      window.addEventListener('blur', handleBlur);
-      window.addEventListener('focus', handleFocus);
-
-      // initial state
-      handleVisibility();
-
-      return () => {
-        document.removeEventListener('visibilitychange', handleVisibility);
-        window.removeEventListener('blur', handleBlur);
-        window.removeEventListener('focus', handleFocus);
-      };
     }, []);
 
     const spin = async () => {
@@ -147,7 +123,7 @@ export function TeamDraw() {
                     Twoja drużyna to:
                   </p>
                   <p className="mt-2 text-center text-2xl font-black uppercase tracking-wide">
-                    <span className="px-2 py-1 text-red-200">
+                    <span className="rounded-md border px-2 py-1 text-red-200">
                       {result}
                     </span>
                   </p>

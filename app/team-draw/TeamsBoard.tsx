@@ -43,7 +43,7 @@ export default async function TeamsBoard() {
         <ul className="flex flex-wrap justify-center gap-6 items-stretch">
           {teams.map((team) => (
             <li key={team.team_name} className="">
-              <div className="w-[260px] h-[190px] rounded-xl border border-red-800/40 bg-zinc-950 p-5 shadow-sm flex flex-col">
+              <div className="w-[230px] h-[190px] rounded-xl border border-red-800/40 bg-zinc-950 p-5 shadow-sm flex flex-col">
                 <div className="mb-4 flex items-center justify-between">
                   <h3 className="text-xl font-bold uppercase tracking-wide">
                     {team.team_name}
