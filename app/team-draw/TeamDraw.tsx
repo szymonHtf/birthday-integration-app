@@ -7,6 +7,7 @@ export function TeamDraw() {
     const [result, setResult] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const [player, setPlayer] = useState<string>("");
+  const [isActive, setIsActive] = useState(true);
 
     useEffect(() => {
         async function fetchUnassignedMember() {
@@ -28,6 +29,29 @@ export function TeamDraw() {
             }
         }
         fetchUnassignedMember();
+    }, []);
+
+    // Track document visibility and window focus to hide interactive UI when not active
+    useEffect(() => {
+      const handleVisibility = () => {
+        setIsActive(!(document.hidden || document.visibilityState === 'hidden'));
+      };
+
+      const handleBlur = () => setIsActive(false);
+      const handleFocus = () => setIsActive(true);
+
+      document.addEventListener('visibilitychange', handleVisibility);
+      window.addEventListener('blur', handleBlur);
+      window.addEventListener('focus', handleFocus);
+
+      // initial state
+      handleVisibility();
+
+      return () => {
+        document.removeEventListener('visibilitychange', handleVisibility);
+        window.removeEventListener('blur', handleBlur);
+        window.removeEventListener('focus', handleFocus);
+      };
     }, []);
 
     const spin = async () => {
@@ -75,7 +99,7 @@ export function TeamDraw() {
   };
 
   return (
-    <section className="w-full bg-black text-white">
+    <section className="w-full text-white">
       <div className="mx-auto max-w-md px-4 py-10">
         <div className="rounded-2xl border border-red-800/40 bg-zinc-950 p-6 shadow-sm">
           <h2 className="text-center text-2xl font-extrabold uppercase tracking-wider">
@@ -104,7 +128,7 @@ export function TeamDraw() {
             ) : (
               <button
                 onClick={reloadPage}
-                className="w-full rounded-lg px-6 py-3 text-base font-semibold uppercase tracking-wide bg-orange-600 hover:bg-orange-700 active:bg-orange-800 transition"
+                className="w-full rounded-lg px-6 py-3 text-base font-semibold uppercase tracking-wide bg-red-700 hover:bg-red-800 active:bg-red-900 transition"
               >
                 Następna osoba ↻
               </button>
@@ -116,14 +140,14 @@ export function TeamDraw() {
               </div>
             )}
 
-            <div className="mt-6 w-full min-h-[80px]" aria-live="polite">
+            <div className="mt-6 w-full" aria-live="polite">
               {result && (
-                <div className="rounded-xl border border-red-800/40 bg-zinc-900 p-4">
+                <div className="rounded-xl border border-red-800/40 bg-red-950 p-4">
                   <p className="text-center text-sm text-zinc-400">
                     Twoja drużyna to:
                   </p>
                   <p className="mt-2 text-center text-2xl font-black uppercase tracking-wide">
-                    <span className="rounded-md border border-red-800/40 bg-red-900/20 px-2 py-1 text-red-200">
+                    <span className="px-2 py-1 text-red-200">
                       {result}
                     </span>
                   </p>

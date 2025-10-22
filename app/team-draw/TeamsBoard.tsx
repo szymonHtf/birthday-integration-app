@@ -29,7 +29,7 @@ export default async function TeamsBoard() {
   const teams = data?.teams ?? [];
 
   return (
-    <section className=" w-full bg-black text-white">
+    <section className="w-full text-white">
       <div className="mx-auto max-w-5xl px-4">
         <header className="mb-8 text-center">
           <h1 className="text-3xl font-extrabold uppercase tracking-wider">
@@ -40,10 +40,10 @@ export default async function TeamsBoard() {
           </p>
         </header>
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <ul className="flex flex-wrap justify-center gap-6 items-stretch">
           {teams.map((team) => (
             <li key={team.team_name} className="">
-              <div className="h-full rounded-xl border border-red-800/40 bg-zinc-950 p-5 shadow-sm">
+              <div className="w-[260px] h-[190px] rounded-xl border border-red-800/40 bg-zinc-950 p-5 shadow-sm flex flex-col">
                 <div className="mb-4 flex items-center justify-between">
                   <h3 className="text-xl font-bold uppercase tracking-wide">
                     {team.team_name}
@@ -59,7 +59,7 @@ export default async function TeamsBoard() {
                       key={`${team.team_name}-${m}-${i}`}
                       className="flex items-center gap-3 rounded-lg border border-zinc-800 px-3 py-2"
                     >
-                      <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-red-700/60 text-red-400 text-sm">🦇</span>
+                      <span className="inline-flex h-7 w-7 items-center justify-center rounded-full ring-red-700/60 ring-2  text-red-700/80 text-sm">🎃</span>
                       <span>{m}</span>
                     </div>
                   ))}
