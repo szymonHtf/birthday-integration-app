@@ -128,7 +128,7 @@ export default function Quiz() {
             team,
             teammate,
             question_number: questionNumber,
-            answer_index: choiceIndex,
+            answer_index: choiceIndex + 1,
             answer_text: answers[choiceIndex],
         };
 
@@ -176,13 +176,13 @@ export default function Quiz() {
     if (!member || !team || !teammate) return null;
 
     return (
-        <section className="w-full bg-black text-red-100 min-h-screen flex flex-col items-center justify-between p-6">
+        <section className="w-full bg-black text-red-100 min-h-screen flex flex-col items-center justify-between p-1">
             {/* Header */}
-            <div className="w-full max-w-xl text-center border border-red-800/40 bg-zinc-950 rounded-2xl p-6 shadow-[0_0_40px_rgba(220,38,38,0.1)]">
-                <h1 className="text-2xl font-extrabold uppercase tracking-widest text-red-500 mb-2 animate-pulse">
+            <div className="w-full max-w-xl text-center border border-red-800/40 bg-zinc-950 rounded-2xl p-2 shadow-[0_0_40px_rgba(220,38,38,0.1)]">
+                <h1 className="text-xl font-extrabold uppercase tracking-widest text-red-500 mb-2 animate-pulse">
                     👁 Halloween Quiz! 👁
                 </h1>
-                <p className="text-zinc-400 italic mb-4">
+                <p className="text-zinc-400 italic mb-2 text-sm">
                     Zimne powietrze... migające świece... wasza przyszłość została przypieczętowana.
                 </p>
 
@@ -226,7 +226,7 @@ export default function Quiz() {
             </div>
 
             {/* Footer */}
-            <p className="text-sm text-zinc-600 italic mb-4">
+            <p className="text-sm text-zinc-600 italic mb-8">
                 Strzeż się... ci, którzy odpowiadają źle, znikają w ciemnościach...
             </p>
         </section>
