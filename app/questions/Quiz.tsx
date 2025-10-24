@@ -106,7 +106,7 @@ export default function Quiz() {
         };
 
         tick();
-        const interval = setInterval(tick, 5000);
+        const interval = setInterval(tick, 2000);
         return () => clearInterval(interval);
     }, [member, team, teammate, lastAnswered]);
 

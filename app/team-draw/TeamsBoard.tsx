@@ -40,7 +40,7 @@ export default async function TeamsBoard() {
           </p>
         </header>
 
-        <ul className="flex flex-wrap justify-center gap-6 items-stretch">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center">
           {teams.map((team) => (
             <li key={team.team_name} className="">
               <div className="w-[230px] h-[190px] rounded-xl border border-red-800/40 bg-zinc-950 p-5 shadow-sm flex flex-col">
@@ -79,7 +79,7 @@ export default async function TeamsBoard() {
           ))}
 
           {/* If there are less than 7 teams, show empty placeholders to keep grid balanced */}
-          {Array.from({ length: Math.max(0, 7 - teams.length) }).map((_, i) => (
+          {Array.from({ length: Math.max(0, 6 - teams.length) }).map((_, i) => (
             <li key={`placeholder-${i}`} className="">
               <div className="h-full rounded-xl border border-dashed border-zinc-800 bg-zinc-950 p-5 text-zinc-500">
                 <h3 className="text-lg font-semibold">— Empty Team —</h3>
