@@ -10,7 +10,8 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 const PAIRS: Array<{ member: string; teammate: string }> = [
     { member: "Zuza", teammate: "Natalia" },
     { member: "Natalia", teammate: "Zuza" },
-    { member: "Monika", teammate: "Natalia" },
+    { member: "Monika", teammate: "Julita" },
+    { member: "Julita", teammate: "Monika" },
     { member: "Hubert N", teammate: "Eryk" },
     { member: "Eryk", teammate: "Hubert N" },
     { member: "Adam", teammate: "Paweł" },
