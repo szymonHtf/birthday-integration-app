@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* the whole party app is dark, regardless of the OS colour scheme */
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @theme inline {

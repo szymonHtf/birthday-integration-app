@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <rect width="800" height="450" fill="#1e1b4b"/>
+  <circle cx="650" cy="90" r="50" fill="#fde68a"/>
+  <path d="M0 450 L0 330 L140 230 L260 300 L400 180 L560 290 L680 240 L800 320 L800 450 Z" fill="#312e81"/>
+  <text x="400" y="420" text-anchor="middle" font-family="sans-serif" font-size="36" fill="#c7d2fe">przykładowe zdjęcie do pytania</text>
+</svg>
